@@ -1,8 +1,13 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+from agent import get_weather_report
+
 
 app = FastAPI(title="Invader API", version="1.0.0")
 
+
+class QueryRequest(BaseModel):
+    input: str
 
 
 @app.get("/")
@@ -15,8 +20,8 @@ def health():
     return {"status": "ok"}
 
 @app.get("/jarvis")
-def jarvis(input):
-    user_input 
-    return {"status": "ok"}
+def jarvis(request: QueryRequest):
+    result = get_weather_report(request.input)
+    return {"status": "ok", "result": result}
 
 
