@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from agent import get_weather_report
+from classify_user_intent import classify_user_intent
+from answer_user_query import answer_user_query
 
 
 app = FastAPI(title="Invader API", version="1.0.0")
@@ -21,7 +22,10 @@ def health():
 
 @app.get("/jarvis")
 def jarvis(request: QueryRequest):
-    result = get_weather_report(request.input)
+    user_intent = classify_user_intent(request.input)
+    print(user_intent)
+    result = answer_user_query(user_intent.strip(),request.input)
+
     return {"status": "ok", "result": result}
 
 
