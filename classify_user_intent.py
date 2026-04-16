@@ -2,8 +2,6 @@ import os
 import sys
 from dotenv import load_dotenv
 import google.generativeai as genai
-from langfuse import Langfuse
-from openinference.instrumentation.google_genai import GoogleGenAIInstrumentor
 from agent_prompts import user_intent_classification_prompt
 
 load_dotenv()

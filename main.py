@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from pydantic import BaseModel
 from classify_user_intent import classify_user_intent
 from answer_user_query import answer_user_query
