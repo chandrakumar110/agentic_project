@@ -2,7 +2,7 @@ import os
 import sys
 from dotenv import load_dotenv
 import google.generativeai as genai
-from agent_prompts import weather_prompt,news_prompt
+from agent_prompts import weather_prompt,news_prompt,general_prompt
 
 
 load_dotenv()
@@ -22,7 +22,7 @@ def answer_user_query(user_intent,user_query):
     elif user_intent == "news_report":
         system_prompt = news_prompt
     else:
-        return "I am not sure how to help you with that."
+        system_prompt = general_prompt
         
     model = genai.GenerativeModel(
         "gemini-2.0-flash",
