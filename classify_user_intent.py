@@ -2,7 +2,7 @@ import os
 import sys
 from dotenv import load_dotenv
 import google.generativeai as genai
-from agent_prompts import user_intent_classification_prompt
+from prompts.system_prompts import user_intent_classification_prompt
 
 load_dotenv()
 

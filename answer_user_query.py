@@ -2,7 +2,7 @@ import os
 import sys
 from dotenv import load_dotenv
 import google.generativeai as genai
-from agent_prompts import weather_prompt,news_prompt,general_prompt
+from prompts.intent_prompts import weather_prompt,news_prompt,general_prompt
 
 
 load_dotenv()
